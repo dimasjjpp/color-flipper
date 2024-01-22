@@ -20,7 +20,7 @@ const addOptionsToColorPicker = () => {
 
 const addEventListenerToColorPicker = () => {
   const colorPickerSelect = document.querySelector('#color-picker')
-  const colorName = document.querySelector('#color-name')
+  const colorName = document.querySelector('#color-name') //falta assignar
   colorPickerSelect.addEventListener('change', (ev) => {
     console.log(ev.target)
     const newColor = ev.target.value
