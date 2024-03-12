@@ -7,9 +7,8 @@ const COLOR_PALETTE = {
   '#0e9594': 'Dark Cyan',
   '#127475': 'Caribbean Current'
 }
+const colorPickerSelect = document.querySelector('#color-picker')
 const addOptionsToColorPicker = () => {
-  const colorPickerSelect = document.querySelector('#color-picker')
-
   Object.keys(COLOR_PALETTE).map((color) => {
     const option = document.createElement('option')
     option.value = color
@@ -19,19 +18,16 @@ const addOptionsToColorPicker = () => {
 }
 
 const addEventListenerToColorPicker = () => {
-  const colorPickerSelect = document.querySelector('#color-picker')
-  const colorName = document.querySelector('#color-name') //falta assignar
+  const colorName = document.querySelector('#color-name')
   colorPickerSelect.addEventListener('change', (ev) => {
-    console.log(ev.target)
+    console.log(ev.target.value)
     const newColor = ev.target.value
     document.body.style.backgroundColor = newColor
 
-    const colorName = `${COLOR_PALETTE[newColor]} | $ {newColor}` || '-'
-    colorName.innerText = COLOR_PALETTE[newColor ? colorNameText : '-']
+    const newColorText = `${COLOR_PALETTE[newColor]} | ${newColor}` || '-'
+    colorName.innerText = COLOR_PALETTE[newColor] ? newColorText : '-'
   })
 }
-
-//afegir input color i segons el color que es mostri en el foins de pantalla dianmicament
 
 addOptionsToColorPicker()
 addEventListenerToColorPicker()
